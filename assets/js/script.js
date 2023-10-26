@@ -29,9 +29,13 @@ function startTimer() {
                 seconds = 0;
             }
 
-            minutesElement.textContent = minutes;
-            secondsElement.textContent = seconds;
+            minutesElement.textContent = formatTime(minutes);
+            secondsElement.textContent = formatTime(seconds);
             millisecondsElement.textContent = milliseconds;
         }
     }, 10);
 }
+function formatTime(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
