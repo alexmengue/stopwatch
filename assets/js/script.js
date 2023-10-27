@@ -31,11 +31,15 @@ function startTimer() {
 
             minutesElement.textContent = formatTime(minutes);
             secondsElement.textContent = formatTime(seconds);
-            millisecondsElement.textContent = milliseconds;
+            millisecondsElement.textContent = formatMilliseconds(milliseconds);
         }
     }, 10);
 }
 function formatTime(time) {
     return time < 10 ? `0${time}` : time;
+}
+
+function formatMilliseconds(time) {
+    return time < 100 ? `${time}`.padStart(3, '0') : time;
 }
 
