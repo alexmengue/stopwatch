@@ -14,6 +14,10 @@ let isPaused = false;
 
 startBtn.addEventListener('click', startTimer);
 
+pauseBtn.addEventListener('click', pauseTimer);
+
+resumeBtn.addEventListener('click', resumeTimer);
+
 function startTimer() {
     interval = setInterval(() => {
         if (!isPaused) {
@@ -34,7 +38,26 @@ function startTimer() {
             millisecondsElement.textContent = formatMilliseconds(milliseconds);
         }
     }, 10);
+
+    startBtn.style.display = 'none';
+    pauseBtn.style.display = 'block';
 }
+
+function pauseTimer() {
+    isPaused = true;
+
+    pauseBtn.style.display = 'none';
+    resumeBtn.style.display = 'block';
+}
+
+function resumeTimer() {
+    isPaused = false;
+
+    
+    resumeBtn.style.display = 'none';
+    pauseBtn.style.display = 'block';
+}
+
 function formatTime(time) {
     return time < 10 ? `0${time}` : time;
 }
